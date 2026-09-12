@@ -20,7 +20,7 @@ class Main {
             }
             if (izq == der){ 
                 System.out.println(i);
-                encontrado = True;
+                encontrado = true;
             }      
         }
         if (encontrado == false) {
