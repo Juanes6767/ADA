@@ -1,21 +1,27 @@
-//Bernouilli
-// Online Java Compiler
-// Use this editor to write, compile and run your Java code online
 import java.util.Scanner;
+import java.math.BigInteger;
+
 class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int masmelo = 49999;
-        
-        int N = scanner.nextInt();
+
+        BigInteger masmelo = BigInteger.valueOf(49999);
+
+        BigInteger N = scanner.nextBigInteger();
         int P = scanner.nextInt();
 
-        int acum = 0;
-        
-        for (int i = 1; i <= N; i++) {
-            acum = acum + ((int) Math.pow(i, P) % masmelo);
+        System.out.println(N);
+        System.out.println(P);
+
+        BigInteger acum = BigInteger.ZERO;
+
+        for (BigInteger i = BigInteger.ONE;
+             i.compareTo(N) <= 0;
+             i = i.add(BigInteger.ONE)) {
+
+            acum = acum.add(i.pow(P).mod(masmelo));
         }
-        
-        System.out.println(acum % masmelo);
+
+        System.out.println(acum.mod(masmelo));
     }
 }
