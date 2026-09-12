@@ -8,7 +8,7 @@ class Main {
         
         System.out.println("N:");
         int N = scanner.nextInt();
-
+        boolean encontrado = false
         for (int i = 1; i <= N; i++) {
             int izq = 0;
             for (int j = 1; j <= i-1; j++) {
@@ -20,9 +20,11 @@ class Main {
             }
             if (izq == der){ 
                 System.out.println(i);
-                System.exit(0);
+                encontrado = True
             }      
         }
-        System.out.println("No hay");         
+        if (encontrado == false) {
+            System.out.println("No hay");
+        }
     }
 }
