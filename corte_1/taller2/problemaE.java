@@ -1,23 +1,38 @@
-// Online Java Compiler
-// Use this editor to write, compile and run your Java code online
 import java.util.Scanner;
-class Main {
+import java.util.ArrayList;
+
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int A = sc.nextInt();
+
+        System.out.print("Ingresa la cota superior M: ");
+        int a = sc.nextInt();
+        int M = sc.nextInt();
+
+        System.out.println(sumaCuadrados(a, M));
+
+        sc.close();
+    }
+
+    // Suma de cuadrados desde a hasta b (fórmula cerrada)
+    public static long sumaCuadrados(int a, int b) {
+        if (a > b) return 0;
+        // fórmula: n(n+1)(2n+1)/6
+        long sumaHastaB = contarDivisores(b);
+        long sumaHastaA_1 = contarDivisores(a);
+        return sumaHastaB - sumaHastaA_1;
+    }
+
+    // Contar divisores de un número
+    public static int contarDivisores(int n) {
+        if (n <= 0) return 0;
         int count = 0;
-        for (int i = 1; i<=B;i++){
-            if (B % i == 0){
-                count += 1;
+        for (int i = 1; i * i <= n; i++) {
+            if (n % i == 0) {
+                count++;
+                if (i != n / i) count++;
             }
         }
-        int B = sc.nextInt();
-        int count2 = 0;
-        for (int i = 1; i<=B;i++){
-            if (B % i == 0){
-                count2 += 1;
-            }
-        }
-        System.out.println(count2-count1); 
+        return count;
     }
 }
