@@ -8,7 +8,7 @@ class Main {
 
         String[] N = sc.nextLine().split(" ");
         for (int i = 0;i<N.length;i++){
-            System.out.println((int) N[i]);
-        }
+if (Integer.valueOf( N[i])%(i+1)==0) {       System.out.println(Integer.valueOf( N[i]));}
+        
     }
-}
+}}
