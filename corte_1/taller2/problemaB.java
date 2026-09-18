@@ -8,7 +8,7 @@ class Main {
 
         String[] N = sc.nextLine().split(" ");
         for (int i = 0;i<N.length;i++){
-            System.out.println(N[i]);
+            System.out.println((int) N[i]);
         }
     }
 }
