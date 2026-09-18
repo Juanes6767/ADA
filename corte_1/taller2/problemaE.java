@@ -4,14 +4,20 @@ import java.util.Scanner;
 class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        int N = sc.nextLine();
+        int A = sc.nextInt();
         int count = 0;
-        for (int i = 1; i<=N;i++){
-            if (N % i == 0){
+        for (int i = 1; i<=B;i++){
+            if (B % i == 0){
                 count += 1;
             }
         }
-        System.out.println(count); 
+        int B = sc.nextInt();
+        int count2 = 0;
+        for (int i = 1; i<=B;i++){
+            if (B % i == 0){
+                count2 += 1;
+            }
+        }
+        System.out.println(count2-count1); 
     }
 }
