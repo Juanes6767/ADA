@@ -1,32 +1,45 @@
-// Online Java Compiler
-// Use this editor to write, compile and run your Java code online
 import java.util.Scanner;
-import java.math.BigInteger;
+
 class Main {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in); 
-        int number = sc.nextInt();
-        BigInteger count = BigInteger.ZERO;
-        while (true){
-            int original = number;
-            int reversed = 0;
-            while (number != 0) {
-                reversed = reversed * 10 + number % 10;
-                number /= 10;
+        Scanner sc = new Scanner(System.in);
+            long number = sc.nextLong();
+
+            int count = 0;
+
+            while (true) {
+
+                // Convertimos el número a String
+                String original = String.valueOf(number);
+
+                // reversed contiene el número invertido
+                String reversed = new StringBuilder(original)
+                        .reverse()
+                        .toString();
+
+                // Comparamos original con reversed
+                if (original.equals(reversed)) {
+                    System.out.println(count);
+                    break;
+                }
+
+                // Invertimos el String y lo convertimos nuevamente a número
+                long reverseNumber = Long.parseLong(reversed);
+
+                // Sumamos número + número invertido
+                number = number + reverseNumber;
+
+                count++;
+
+                // Si llega a 1E10 o más, es sospechoso de Lychrel
+                if (number >= 10000000000L) {
+                    System.out.println("L");
+                    break;
+                }
             }
-        if (original == reversed){
-            System.out.println(count);
-            break;
-        }
-        if (count.compareTo(BigInteger.valueOf(10000000000L))==-1){
-        System.out.println("L");
-            break;
-        }
-        number = number + reversed;
-        count.add(BigInteger.ONE);
-            
-        }
-        
+      
+
+        sc.close();
     }
 }
-
