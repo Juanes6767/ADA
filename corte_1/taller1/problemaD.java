@@ -1,31 +1,26 @@
 import java.util.Scanner;
-import java.util.Arrays;
-class Main {
 
+class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        boolean encontrado= false;
         int N = sc.nextInt();
-        boolean zero= false;
-        if (String.valueOf(N).charAt(String.valueOf(N).length()-1)=='0') {
+        int primero=0;
+        int segundo=0;
+        String texto = String.valueOf(N*N);
+        for (int i = 1;i<texto.length();i++){
+            primero = Integer.parseInt(texto.substring(0 ,i));
+            segundo = Integer.parseInt(texto.substring(i,texto.length()));
+                if ( primero+segundo  == N){
+                    if (segundo!=0){
+                    System.out.println("KAP");
+                    encontrado= true;
+                    break;
+                }
+        }
+    }
+        if (!encontrado){
             System.out.println("NO");
-            zero=true;
         }
-        else{
-        String texto = String.valueOf(N * N);
-
-for (int corte = 1; corte < texto.length(); corte++) {
-    String primero = texto.substring(0, corte);
-    String segundo = texto.substring(corte);
-
-    if (Integer.parseInt(primero) + Integer.parseInt(segundo) == N) {
-        System.out.println("KAP");
-        zero = true;
-        break;
-    }
 }
-        }
-if (zero == false){
-System.out.println("NO");
-}
-    }
 }
