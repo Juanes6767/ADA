@@ -15,7 +15,7 @@ class Main {
             segundo = String.valueOf(N-i);
             casoRaro = ( (texto.split("0")[0] + String.join("", Arrays.copyOfRange(texto.split("0"), 1, texto.split("0").length)) ).equals(primero + segundo) ) || ( String.join("", (Arrays.copyOfRange(texto.split("0"), 0, texto.split("0").length-1)) + texto.split("0")[texto.split("0").length-1] ).equals(primero + segundo) );
             
-            if ( (primero + segundo).equals(texto) || casoRaro){
+            if ( (primero + segundo).equals(texto) || (segundo + primero ).equals(texto) || casoRaro){
                 System.out.println("KAP");
                 encontrado = true;
                 break;
