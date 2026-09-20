@@ -6,14 +6,15 @@ class Main {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         String texto = String.valueOf(N*N);
-        boolean encontrado = false;
+        boolean encontrado = true;
         for (int i = 1; i<=N ;i++) {
             if ( (String.valueOf(i) + String.valueOf(N-i)).equals(texto) ){
                 System.out.println("KAP");
+                encontrado = true;
                 break;
             }
             else{
-                encontrado = true;
+                encontrado = false;
             }
             }
         if (encontrado == false){
