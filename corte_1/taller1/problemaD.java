@@ -19,7 +19,7 @@ for (int corte = 1; corte < texto.length(); corte++) {
 
     if (Integer.parseInt(primero) + Integer.parseInt(segundo) == N) {
         System.out.println("KAP");
-        return;
+        break;
     }
 }
         }
