@@ -13,7 +13,7 @@ class Main {
         for (int i = 1; i<=N ;i++) {
             primero = String.valueOf(i);
             segundo = String.valueOf(N-i);
-            casoRaro= ( (texto.split("0")[0] + segundo).equals(primero + segundo)) ||  ( (primero + texto.split("0")[texto.split("0").length-1]).equals( primero + segundo) );
+            casoRaro = ( (texto.split("0")[0] + String.join("", Arrays.copyOfRange(texto.split("0"), 1, texto.split("0").length)) ).equals(primero + segundo) ) || ( String.join("", (Arrays.copyOfRange(texto.split("0"), 0, texto.split("0").length-1)) + texto.split("0")[texto.split("0").length-1] ).equals(primero + segundo) );
             
             if ( (primero + segundo).equals(texto) || casoRaro){
                 System.out.println("KAP");
