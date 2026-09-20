@@ -10,10 +10,15 @@ class Main {
         boolean casoRaro = false;
         String primero = "";
         String segundo = "";
+        String primeros = "";
+        String segundos = "";
         for (int i = 1; i<=N ;i++) {
             primero = String.valueOf(i);
             segundo = String.valueOf(N-i);
-            casoRaro = ( (texto.split("0")[0] + String.join("", Arrays.copyOfRange(texto.split("0"), 1, texto.split("0").length)) ).equals(primero + segundo) ) || ( String.join("", (Arrays.copyOfRange(texto.split("0"), 0, texto.split("0").length-1)) + texto.split("0")[texto.split("0").length-1] ).equals(primero + segundo) );
+            primeros = (texto.split("0")[0] + String.join("", Arrays.copyOfRange(texto.split("0"), 1, texto.split("0").length)) );
+            segundos =  String.join("", (Arrays.copyOfRange(texto.split("0"), 0, texto.split("0").length-1))) + texto.split("0")[texto.split("0").length-1];
+                
+            casoRaro = primeros.equals(primero + segundo)  || segundos.equals(primero + segundo) || primeros.equals(segundo+ primero) || segundos.equals(segundo+ primero);
             
             if ( (primero + segundo).equals(texto) || (segundo + primero ).equals(texto) || casoRaro){
                 System.out.println("KAP");
