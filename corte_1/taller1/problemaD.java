@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.Arrays;
 class Main {
 
     public static void main(String[] args) {
@@ -7,12 +7,20 @@ class Main {
         int N = sc.nextInt();
         String texto = String.valueOf(N*N);
         boolean encontrado = true;
+        boolean casoRaro = false;
+        String primero = "";
+        String segundo = "";
         for (int i = 1; i<=N ;i++) {
-            if ( (String.valueOf(i) + String.valueOf(N-i)).equals(texto) ){
+            primero = String.valueOf(i);
+            segundo = String.valueOf(N-i);
+            casoRaro= (texto.split("0")[0] + Arrays.copyOfRange(texto.split("0"), 1, texto.split("0").length)  == primero + segundo) || (Arrays.copyOfRange(texto.split("0"), 0, texto.split("0").length-1) + texto.split("0")[texto.split("0").length] == primero + segundo);
+            
+            if ( (primero + segundo).equals(texto) || casoRaro){
                 System.out.println("KAP");
                 encontrado = true;
                 break;
             }
+            
             else{
                 encontrado = false;
             }
