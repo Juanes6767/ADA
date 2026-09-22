@@ -17,7 +17,7 @@ class Main {
 
         // Encontrar el mayor
         for (int i = 0; i < list.length; i++) {
-            int num = Integer.parseInt(list[i]);
+            int num = Integer.valueOf(list[i]);
 
             if (num > mayor) {
                 mayor = num;
@@ -30,7 +30,7 @@ class Main {
             boolean esGcd = true;
 
             for (int j = 0; j < list.length; j++) {
-                int num = Integer.parseInt(list[j]);
+                int num = Integer.valueOf(list[j]);
 
                 if (num % i != 0) {
                     esGcd = false;
