@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.Math;
 
 class Main {
     public static void main(String[] args) {
@@ -12,6 +13,7 @@ class Main {
         }
         int mayor = 0;
         int gcd = 0;
+        int count=0;
 
         // Encontrar el mayor
         for (int i = 0; i < list.length; i++) {
@@ -32,15 +34,17 @@ class Main {
 
                 if (num % i != 0) {
                     esGcd = false;
+                    count++;
                     break;
                 }
             }
 
             if (esGcd) {
                 gcd = i;
+                
             }
         }
 
-        System.out.println(producto/gcd);
+        System.out.println((int)((producto/gcd)/Math.pow(gcd,list.length-2)));
     }
 }
